@@ -1,0 +1,14 @@
+﻿{
+	"Items":
+	[
+		{
+			"Name": "Power Inverter",
+			"Description": "Allows you to plug various devices into your car.",
+			"Value": 40.00,
+			"VitalMod":
+			{
+				"Interest": 20
+			}
+		}
+	]
+}
