@@ -4,18 +4,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace ConTrail.Importers
 {
-    public class ItemImporter
+    public static class ItemImporter
     {
-        public static List<Item> Import()
+        public static Dictionary<ItemTypes, List<Item>> Import(string datapath = "Data/items.json")
         {
-            var ret = new List<Item>();
-
-            var JsonFile = File.ReadAllText("Data/items.json");
-
-            return ret;
+            var JsonFile = File.ReadAllText(datapath);
+            return JsonConvert.DeserializeObject<Dictionary<ItemTypes, List<Item>>>(JsonFile);
         }
     }
 }
