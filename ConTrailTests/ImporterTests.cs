@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using ConTrail.Importers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,14 +10,10 @@ namespace ConTrailTests
         [TestMethod]
         public void TestItemImport()
         {
-            var Items = ItemImporter.Import();
-            Assert.IsNotNull(Items);
-            Assert.IsTrue(Items.Count > 0);
-
-            foreach (var Category in Items)
-            {
-                Assert.IsTrue(Category.Value.Count > 0);
-            }
+            ItemImporter.Import();
+            
+            Assert.IsNotNull(ItemImporter.Items);
+            Assert.IsTrue(ItemImporter.Items.Any());
         }
     }
 }
