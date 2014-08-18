@@ -1,6 +1,3 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
 namespace ConTrail
 {
     public class Item
@@ -16,6 +13,8 @@ namespace ConTrail
 
         public Vitals VitalMod { get; set; }
 
+        public ItemTypes Type { get; set; }
+
         public UseTypes UseType
         {
             get { return (Uses >= 0 ? UseTypes.Consumable : UseTypes.Infinite); }
@@ -24,6 +23,11 @@ namespace ConTrail
         public bool CanUse
         {
             get { return (UseType == UseTypes.Infinite || (Uses > 0)); }
+        }
+
+        public Item GetCopy()
+        {
+            return (Item)MemberwiseClone();
         }
     }
 
@@ -35,6 +39,7 @@ namespace ConTrail
 
     public enum ItemTypes
     {
-        Standard
+        Standard,
+        Drug
     }
 }
