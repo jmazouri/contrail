@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Humanizer">
+      <HintPath>..\packages\Humanizer.1.28.0\lib\portable-win+net40+sl50+wp8+wpa81\Humanizer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -45,17 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game\Command.cs" />
+    <Compile Include="Game\CommandParsers\ItemUseParser.cs" />
+    <Compile Include="Game\Models\ItemTypes\InfiniteUseItem.cs" />
+    <Compile Include="Game\Models\ItemTypes\ConsumableItem.cs" />
+    <Compile Include="Game\CommandParsers\CommandParser.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Importers\ItemImporter.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="Game\Interfaces\ITarget.cs" />
+    <Compile Include="Game\CommandParsers\MovementParser.cs" />
+    <Compile Include="Importers\Importer.cs" />
+    <Compile Include="Game\Models\ItemTypes\Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Traveler.cs" />
-    <Compile Include="Vitals.cs" />
+    <Compile Include="Game\Models\Traveler.cs" />
+    <Compile Include="Game\Models\Vitals.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Data\items.json">
+    <None Include="Data\items\infiniteuse.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\items\consumables.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

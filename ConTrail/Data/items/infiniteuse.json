@@ -1,0 +1,13 @@
+﻿[
+    {
+        "Name": "Power Inverter",
+        "Description": "Allows you to plug various devices into your car.",
+        "Type": "Standard",
+        "Verb": "Charged",
+        "Value": 40.00,
+        "MaxCooldown": 3,
+        "VitalMod": {
+            "Interest": 10
+        }
+    }
+]

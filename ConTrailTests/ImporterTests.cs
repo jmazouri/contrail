@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ConTrail.Game.Models.ItemTypes;
 using ConTrail.Importers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -8,12 +9,14 @@ namespace ConTrailTests
     public class ImporterTests
     {
         [TestMethod]
-        public void TestItemImport()
+        public void TestConsumableItemImport()
         {
-            ItemImporter.Import();
-            
-            Assert.IsNotNull(ItemImporter.Items);
-            Assert.IsTrue(ItemImporter.Items.Any());
+            Importer<ConsumableItem> Importer = new Importer<ConsumableItem>();
+            Importer.DataPath = "Data/items/consumables.json";
+            Importer.Import();
+
+            Assert.IsNotNull(Importer.Items);
+            Assert.IsTrue(Importer.Items.Any());
         }
     }
 }
