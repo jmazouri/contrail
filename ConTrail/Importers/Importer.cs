@@ -2,30 +2,33 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ConTrail.Game.Interfaces;
+using ConTrail.Game.Models;
 using Newtonsoft.Json;
 
 namespace ConTrail.Importers
 {
-    public static class ItemImporter
+    public class Importer<T> where T : ITarget
     {
-        public static List<Item> Items = new List<Item>();
+        public List<T> Items = new List<T>();
+        public string DataPath;
 
-        public static Item GetInstanceOfItem(string name)
+        public T GetInstanceOfItem(string name)
         {
             var firstOrDefault = Items.FirstOrDefault(d => d.Name == name);
 
             if (firstOrDefault != null)
             {
-                return firstOrDefault.GetCopy();
+                return (T)firstOrDefault.GetCopy();
             }
             
             throw new ArgumentException(String.Format("Item \"{0}\" doesn't exist.", name));
         }
 
-        public static void Import(string datapath = "Data/items.json")
+        public void Import()
         {
-            var JsonFile = File.ReadAllText(datapath);
-            Items = JsonConvert.DeserializeObject<List<Item>>(JsonFile);
+            var jsonFile = File.ReadAllText(DataPath);
+            Items = JsonConvert.DeserializeObject<List<T>>(jsonFile);
         }
     }
 }
