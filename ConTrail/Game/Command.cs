@@ -11,7 +11,7 @@ namespace ConTrail.Game
         public ITarget Target { get; set; }
         public GameAction Action { get; set; }
 
-        public static List<CommandParser> Parsers = new List<CommandParser> { new ItemUseParser(), new MovementParser() }; 
+        public static List<CommandParser> Parsers = new List<CommandParser> { new ItemUseParser(), new MovementParser(), new MiscCommandParser() }; 
 
         public static void Parse(string input)
         {
@@ -32,6 +32,7 @@ namespace ConTrail.Game
     {
         Move,
         Use,
+        Misc,
         Unknown
     }
 }

@@ -10,6 +10,7 @@ namespace ConTrail
         static void Main(string[] args)
         {
             TheGame = new ConTrailGame();
+            TheGame.Start();
 
             while (true)
             {

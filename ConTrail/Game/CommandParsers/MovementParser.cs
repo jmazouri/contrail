@@ -17,7 +17,7 @@ namespace ConTrail.Game.CommandParsers
                 "travel to"
             });
         }
-        protected override Command InterperetCommand(string[] args)
+        protected override Command InterperetCommand(string command)
         {
             Program.TheGame.Output("You can't go anywhere yet! Soon(tm)!");
             return new Command()

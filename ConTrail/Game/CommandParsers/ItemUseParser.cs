@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
+using ConTrail.Game.Models;
+using ConTrail.Game.Models.ItemTypes;
 
 namespace ConTrail.Game.CommandParsers
 {
@@ -11,24 +14,23 @@ namespace ConTrail.Game.CommandParsers
             ValidInputs.Add("use");
         }
 
-        protected override Command InterperetCommand(string[] args)
+        protected override Command InterperetCommand(string command)
         {
-            if (args.Count() == 4)
-            {
-                string itemname = args[0];
-                string targetname = args[2];
+            var match = Regex.Match(command, @"^(use)\s(.*?)\s(on)\s(.*?)$");
 
-                var founditem = Program.TheGame.Inventory.FirstOrDefault(d => d.Name.Equals(itemname, StringComparison.InvariantCultureIgnoreCase));
-                var target = Program.TheGame.Travelers.FirstOrDefault(d=>d.Name.Equals(itemname, StringComparison.InvariantCultureIgnoreCase));
+            string itemname = match.Groups[2].Value;
+            string targetname = match.Groups[4].Value;
+
+            if (match.Groups.Count == 5)
+            {
+                var founditem = (Item)Program.TheGame.FindTargetFromName(itemname, Program.TheGame.Inventory);
+                var target = (Traveler)Program.TheGame.FindTargetFromName(targetname, Program.TheGame.Travelers); 
 
                 if (founditem != null)
                 {
                     if (target != null)
                     {
-                        if (founditem.CanUse(target))
-                        {
-                            founditem.Use(target);
-                        }
+                        founditem.Use(target);
 
                         return new Command
                         {
@@ -37,10 +39,21 @@ namespace ConTrail.Game.CommandParsers
                         };
                     }
 
-                    Program.TheGame.Output(String.Format("I don't know anyone named \"{0}\".", targetname));
+                    return new Command
+                    {
+                        Target = null,
+                        Action = GameAction.Use
+                    };
                 }
-                Program.TheGame.Output(String.Format("You don't have any \"{0}\".", itemname));
+
+                return new Command
+                {
+                    Target = null,
+                    Action = GameAction.Use
+                };
             }
+
+            Program.TheGame.Output(String.Format("What? Use (x) on (y), please."), OutputColor.White);
 
             return new Command
             {

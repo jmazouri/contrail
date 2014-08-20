@@ -28,5 +28,9 @@ namespace ConTrail.Game.Models
             throw new System.NotImplementedException();
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0}, Age {1}. Stats: {2}", Name, Age, Vitals);
+        }
     }
 }

@@ -15,15 +15,15 @@ namespace ConTrail.Game.Models
         {
             return new Vitals
             {
-                Health = v1.Health + v2.Health,
-                Hunger = v1.Hunger + v2.Hunger,
-                Interest = v1.Interest + v2.Interest
+                Health = (v1.Health + v2.Health).Clamp(0, 100),
+                Hunger = (v1.Hunger + v2.Hunger).Clamp(0, 100),
+                Interest = (v1.Interest + v2.Interest).Clamp(0, 100)
             };
         }
 
         public override string ToString()
         {
-            return GetType().GetProperties().Select(d => String.Format("{0}: {1}", d.Name, d.GetValue(this))).Humanize("");
+            return GetType().GetProperties().Select(d => String.Format("{0}: {1}", d.Name, d.GetValue(this))).Humanize();
         }
     }
 }

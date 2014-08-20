@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ConTrail.Game.Interfaces;
-using ConTrail.Game.Models;
 using Newtonsoft.Json;
 
 namespace ConTrail.Importers
