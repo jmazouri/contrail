@@ -12,7 +12,9 @@ namespace ConTrail.Game.Models.ItemTypes
         public string Description { get; set; }
         public float Value { get; set; }
 
-        [DefaultValue("Used")]
+        public int Quantity { get; set; }
+
+        [DefaultValue("Used a")]
         public string Verb { get; set; }
 
         public int MaxCooldown { get; set; }
@@ -24,14 +26,10 @@ namespace ConTrail.Game.Models.ItemTypes
 
         public abstract void MoveTo();
 
-        public virtual bool CanUse(ITarget source)
-        {
-            return Cooldown == 0;
-        }
-
         public virtual bool Use(ITarget source)
         {
-            if (CanUse(source))
+            //don't worry about the cooldown if the max is 0
+            if (Cooldown == 0 | MaxCooldown == 0)
             {
                 Cooldown = MaxCooldown;
                 return true;
@@ -45,11 +43,17 @@ namespace ConTrail.Game.Models.ItemTypes
         {
             return (Item)MemberwiseClone();
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
     public enum ItemType
     {
         Standard,
-        Drug
+        Drug,
+        Food
     }
 }

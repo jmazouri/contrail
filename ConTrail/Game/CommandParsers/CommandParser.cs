@@ -16,7 +16,7 @@ namespace ConTrail.Game.CommandParsers
             {
                 if (input.StartsWith(testinput, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    return InterperetCommand(input.Substring(input.IndexOf(testinput, StringComparison.Ordinal)).Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
+                    return InterperetCommand(input);
                 }
             }
 
@@ -27,6 +27,6 @@ namespace ConTrail.Game.CommandParsers
             };
         }
 
-        protected abstract Command InterperetCommand(string[] args);
+        protected abstract Command InterperetCommand(string command);
     }
 }

@@ -20,8 +20,8 @@ namespace ConTrail.Game.Models.ItemTypes
 
             traveler.Vitals += VitalMod;
 
-            Program.TheGame.Output(String.Format("{0} a \"{1}\"!", Verb, Name));
-            Program.TheGame.Output(String.Format("Stat Change: {0}", VitalMod));
+            Program.TheGame.Output(String.Format("{0} {1}!", String.Format(Verb, source.Name), Name), OutputColor.Green);
+            Program.TheGame.Output(String.Format("New Stats: {0}", traveler.Vitals), OutputColor.Green);
 
             return true;
         }

@@ -1,15 +1,42 @@
 ﻿[
     {
         "Name": "Grass",
-        "Description": "smokin da grass",
+        "Description": "sticky icky icky",
         "Type": "Drug",
-        "Verb": "Smoked",
+        "Verb": "{0} smoked some",
         "Value": 10.00,
-        "Uses": 3,
+        "Quantity": 3,
         "MaxCooldown": 0,
         "VitalMod": {
             "Health": 10,
-            "Hunger": 30
+            "Hunger": 30,
+            "Interest": -10
+        }
+    },
+    {
+        "Name": "Coke",
+        "Description": "Pyrex. Snow. Blow. Yayo. Weasel dust.",
+        "Type": "Drug",
+        "Verb": "{0} snorted some",
+        "Value": 30.00,
+        "Quantity": 2,
+        "MaxCooldown": 0,
+        "VitalMod": {
+            "Health": -20,
+            "Hunger": -30,
+            "Interest": 40
+        }
+    },
+    {
+        "Name": "Burrito",
+        "Description": "Nondescript wrapped mexican food product",
+        "Type": "Food",
+        "Verb": "{0} ate a",
+        "Value": 2.00,
+        "Quantity": 1,
+        "MaxCooldown": 0,
+        "VitalMod": {
+            "Hunger": -20
         }
     }
 ]

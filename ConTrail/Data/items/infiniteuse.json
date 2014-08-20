@@ -1,11 +1,12 @@
 ﻿[
     {
         "Name": "Power Inverter",
-        "Description": "Allows you to plug various devices into your car.",
+        "Description": "Lets you charge devices.",
         "Type": "Standard",
-        "Verb": "Charged",
+        "Verb": "Charged {0}'s phone using the",
         "Value": 40.00,
-        "MaxCooldown": 3,
+        "Quantity": "-1",
+        "MaxCooldown": 4,
         "VitalMod": {
             "Interest": 10
         }
