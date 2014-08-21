@@ -27,7 +27,7 @@ namespace ConTrail.Game.Models.ItemTypes
             traveler.Vitals += VitalMod;
             Quantity -= 1;
 
-            Program.TheGame.Output(String.Format("{0} {1}! {2} left.", String.Format(Verb, source.Name), Name, "uses".ToQuantity(Quantity)), OutputColor.Green);
+            Program.TheGame.Output(String.Format("{0} {1}! {2} left.", String.Format(Verb, source.Name), Name, Name.ToQuantity(Quantity)), OutputColor.Green);
             Program.TheGame.Output(String.Format("New Stats: {0}", traveler.Vitals), OutputColor.Green);
 
             if (Quantity == 0)

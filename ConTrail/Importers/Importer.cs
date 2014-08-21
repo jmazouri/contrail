@@ -24,6 +24,18 @@ namespace ConTrail.Importers
             throw new ArgumentException(String.Format("Item \"{0}\" doesn't exist.", name));
         }
 
+        public List<T> DumpAll()
+        {
+            var ret = new List<T>();
+
+            foreach (var item in Items)
+            {
+                ret.Add((T)item.GetCopy());
+            }
+
+            return ret;
+        }
+
         public void Import()
         {
             var jsonFile = File.ReadAllText(DataPath);
