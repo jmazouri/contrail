@@ -13,10 +13,7 @@ namespace ConTrail.Game.Models
         
         public Vitals Vitals { get; set; }
 
-        public void MoveTo()
-        {
-            return;
-        }
+        public void MoveTo() { }
 
         public bool Use(ITarget source)
         {

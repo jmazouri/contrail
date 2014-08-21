@@ -25,6 +25,9 @@ namespace ConTrail
 
         public ConTrailGame()
         {
+            Console.OutputEncoding = System.Text.Encoding.GetEncoding(1252);
+            Console.WindowWidth = 80;
+
             InfiniteUseItemImporter.DataPath = "Data/items/infiniteuse.json";
             InfiniteUseItemImporter.Import();
 
@@ -61,10 +64,8 @@ namespace ConTrail
                 }
             });
 
-            Inventory.Add(InfiniteUseItemImporter.GetInstanceOfItem("Power Inverter"));
-            Inventory.Add(ConsumableItemImporter.GetInstanceOfItem("Grass"));
-            Inventory.Add(ConsumableItemImporter.GetInstanceOfItem("Coke"));
-            Inventory.Add(ConsumableItemImporter.GetInstanceOfItem("Burrito"));
+            Inventory.AddRange(InfiniteUseItemImporter.DumpAll());
+            Inventory.AddRange(ConsumableItemImporter.DumpAll());
 
             ItemTimer = new Timer(1000);
             ItemTimer.Elapsed += ItemTimer_Elapsed;
@@ -115,19 +116,19 @@ namespace ConTrail
 
         public ITarget FindTargetFromName(string name, IEnumerable<ITarget> targets)
         {
-            var found = targets.Where(d => d.Name.ToLowerInvariant().Contains(name.ToLowerInvariant()));
+            List<ITarget> found = targets.Where(d => d.Name.ToLowerInvariant().Contains(name.ToLowerInvariant())).ToList();
 
             if (!found.Any())
             {
                 Output(String.Format("What's a \"{0}\"?", name), OutputColor.White);
             }
 
-            if (found.Count() > 1)
+            if (found.Count > 1)
             {
-                Output("Did you mean one of these? "+found.Humanize("or"), OutputColor.White);
+                Output("Did you mean one of these? " + found.Humanize("or"), OutputColor.White);
             }
 
-            if (found.Count() == 1)
+            if (found.Count == 1)
             {
                 return found.First();
             }
@@ -137,9 +138,33 @@ namespace ConTrail
 
         public void Output(string data, OutputColor color = OutputColor.Gray)
         {
-            Console.ForegroundColor = Util.OutputToConsoleColor(color);
+            Console.ForegroundColor = OutputToConsoleColor(color);
             Console.WriteLine(data);
-            Console.ForegroundColor = Util.OutputToConsoleColor(InputTextColor);
+            Console.ForegroundColor = OutputToConsoleColor(InputTextColor);
+        }
+
+        //This whole thing exists so we can do colors in a non-console environment without find/replacing all instances of consolecolor
+        public static ConsoleColor OutputToConsoleColor(OutputColor color)
+        {
+            switch (color)
+            {
+                case OutputColor.Blue:
+                    return ConsoleColor.Cyan;
+                case OutputColor.Gray:
+                    return ConsoleColor.Gray;
+                case OutputColor.Green:
+                    return ConsoleColor.Green;
+                case OutputColor.Red:
+                    return ConsoleColor.Red;
+                case OutputColor.White:
+                    return ConsoleColor.White;
+                case OutputColor.Yellow:
+                    return ConsoleColor.Yellow;
+                case OutputColor.Magenta:
+                    return ConsoleColor.Magenta;
+                default:
+                    return ConsoleColor.Gray;
+            }
         }
     }
 

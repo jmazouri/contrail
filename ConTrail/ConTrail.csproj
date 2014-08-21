@@ -51,13 +51,15 @@
     <Compile Include="Game\Command.cs" />
     <Compile Include="Game\CommandParsers\ItemUseParser.cs" />
     <Compile Include="Game\CommandParsers\MiscCommandParser.cs" />
+    <Compile Include="Game\Extensions.cs" />
     <Compile Include="Game\Models\ItemTypes\InfiniteUseItem.cs" />
     <Compile Include="Game\Models\ItemTypes\ConsumableItem.cs" />
     <Compile Include="Game\CommandParsers\CommandParser.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Game\Interfaces\ITarget.cs" />
     <Compile Include="Game\CommandParsers\MovementParser.cs" />
-    <Compile Include="Game\Util.cs" />
+    <Compile Include="Utilities\TableCol.cs" />
+    <Compile Include="Utilities\TextTable.cs" />
     <Compile Include="Importers\Importer.cs" />
     <Compile Include="Game\Models\ItemTypes\Item.cs" />
     <Compile Include="Program.cs" />

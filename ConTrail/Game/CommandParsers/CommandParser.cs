@@ -8,25 +8,19 @@ namespace ConTrail.Game.CommandParsers
     {
         public List<string> ValidInputs = new List<string>();
 
-        public GameAction Action { get; set; }
-
-        public Command Parse(string input)
+        public bool Parse(string input)
         {
             foreach (string testinput in ValidInputs)
             {
                 if (input.StartsWith(testinput, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    return InterperetCommand(input);
+                    InterperetCommand(input);
+                    return true;
                 }
             }
-
-            return new Command()
-            {
-                Target = null,
-                Action = GameAction.Unknown
-            };
+            return false;
         }
 
-        protected abstract Command InterperetCommand(string command);
+        protected abstract void InterperetCommand(string command);
     }
 }

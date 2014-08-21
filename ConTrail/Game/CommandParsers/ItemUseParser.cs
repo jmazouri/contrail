@@ -14,7 +14,7 @@ namespace ConTrail.Game.CommandParsers
             ValidInputs.Add("use");
         }
 
-        protected override Command InterperetCommand(string command)
+        protected override void InterperetCommand(string command)
         {
             var match = Regex.Match(command, @"^(use)\s(.*?)\s(on)\s(.*?)$");
 
@@ -31,35 +31,11 @@ namespace ConTrail.Game.CommandParsers
                     if (target != null)
                     {
                         founditem.Use(target);
-
-                        return new Command
-                        {
-                            Target = target,
-                            Action = GameAction.Use
-                        };
                     }
-
-                    return new Command
-                    {
-                        Target = null,
-                        Action = GameAction.Use
-                    };
                 }
-
-                return new Command
-                {
-                    Target = null,
-                    Action = GameAction.Use
-                };
             }
 
-            Program.TheGame.Output(String.Format("What? Use (x) on (y), please."), OutputColor.White);
-
-            return new Command
-            {
-                Target = null,
-                Action = GameAction.Unknown
-            };
+            Program.TheGame.Output(String.Format("What? Use (x) on (y), please!"), OutputColor.White);
         }
     }
 }
