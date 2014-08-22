@@ -23,6 +23,8 @@ namespace ConTrail
 
         public OutputColor InputTextColor = OutputColor.Yellow;
 
+        public GameStats GameStats { get; set; }
+
         public ConTrailGame()
         {
             Console.OutputEncoding = System.Text.Encoding.GetEncoding(1252);
@@ -40,6 +42,16 @@ namespace ConTrail
 
         public void Start()
         {
+            GameStats = new GameStats()
+            {
+                GameName = "Jmazouri's Game",
+                Money = 200.00m,
+                MoneyEarned = 0,
+                MoneySpent = 0,
+                StartTime = DateTime.Now,
+                WantedLevel = 0
+            };
+
             Travelers.Add(new Traveler()
             {
                 Name = "Jmazouri",
@@ -120,12 +132,12 @@ namespace ConTrail
 
             if (!found.Any())
             {
-                Output(String.Format("What's a \"{0}\"?", name), OutputColor.White);
+                Output(String.Format("What's a \"{0}\"?", name), OutputColor.Red);
             }
 
             if (found.Count > 1)
             {
-                Output("Did you mean one of these? " + found.Humanize("or"), OutputColor.White);
+                Output(String.Format("Did you mean one of these? {0}", found.Humanize("or")), OutputColor.Green);
             }
 
             if (found.Count == 1)

@@ -54,6 +54,8 @@ namespace ConTrail.Game.Models.ItemTypes
     {
         Standard,
         Drug,
-        Food
+        Food,
+        Gas,
+        FancyFood
     }
 }
