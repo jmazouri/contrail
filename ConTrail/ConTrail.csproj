@@ -52,12 +52,16 @@
     <Compile Include="Game\CommandParsers\ItemUseParser.cs" />
     <Compile Include="Game\CommandParsers\MiscCommandParser.cs" />
     <Compile Include="Game\Extensions.cs" />
+    <Compile Include="Game\Models\GameStats.cs" />
+    <Compile Include="Game\Models\LocationStats.cs" />
+    <Compile Include="Game\Models\Generators\LocationGenerator.cs" />
     <Compile Include="Game\Models\ItemTypes\InfiniteUseItem.cs" />
     <Compile Include="Game\Models\ItemTypes\ConsumableItem.cs" />
     <Compile Include="Game\CommandParsers\CommandParser.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Game\Interfaces\ITarget.cs" />
     <Compile Include="Game\CommandParsers\MovementParser.cs" />
+    <Compile Include="Game\Models\Location.cs" />
     <Compile Include="Utilities\TableCol.cs" />
     <Compile Include="Utilities\TextTable.cs" />
     <Compile Include="Importers\Importer.cs" />
@@ -75,6 +79,8 @@
     <None Include="Data\items\consumables.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Data\locations\locations.json" />
+    <None Include="Data\locations\locationstats.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

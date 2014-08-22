@@ -48,7 +48,7 @@ namespace ConTrail.Utilities
             for (int i = 0; i < props.Length; i++)
             {
                 var prop = props[i];
-                Columns.Add(prop.Name);
+                Columns.Add(prop.Name.Humanize());
 
                 /*
                 var displayname = prop.GetCustomAttributes(typeof(DisplayNameAttribute), true);
@@ -101,13 +101,13 @@ namespace ConTrail.Utilities
                         }
                     }
 
-                    var val = props.First(d => d.Name == Columns[i]).GetValue(o).ToString();
+                    var val = props.First(d => d.Name == Columns[i].Dehumanize()).GetValue(o).ToString();
 
                     double useless;
-                    bool ValIsNumeric = double.TryParse(val, out useless);
+                    bool valIsNumeric = double.TryParse(val, out useless);
 
                     if ((columnList.ElementAtOrDefault(i) != null && columnList[i].CenterAlign) ||
-                        (ValIsNumeric))
+                        (valIsNumeric))
                     {
                         builder.Append(String.Format("{0, -" + (CurColWidth - 1) + "}" + (i < Columns.Count - 1 ? VerticalLine : ""),
                                 val.Truncate(CurColWidth).CenterString(CurColWidth)));

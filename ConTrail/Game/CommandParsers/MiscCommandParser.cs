@@ -17,6 +17,7 @@ namespace ConTrail.Game.CommandParsers
             ValidInputs = new List<string>
             {
                 "status",
+                "info",
                 "?",
                 "help",
                 "quit",
@@ -33,12 +34,11 @@ namespace ConTrail.Game.CommandParsers
                 case "help":
                     Program.TheGame.Output("Try one of these: "+Command.Parsers.SelectMany(d=>d.ValidInputs).Humanize("or"), OutputColor.Green);
                     break;
+                case "info":
                 case "status":
-                    Program.TheGame.Output("Travelers' status: ", OutputColor.Blue);
-
                     var statusTable = new TextTable();
 
-                    string statTable = statusTable.FromList(Program.TheGame.Travelers.Select(d => new
+                    string statTable = "Travelers' Status:" + statusTable.FromList(Program.TheGame.Travelers.Select(d => new
                     {
                         d.Name,
                         d.Age,
@@ -48,12 +48,34 @@ namespace ConTrail.Game.CommandParsers
                     }));
 
                     Program.TheGame.Output(statTable, OutputColor.White);
+
+                    var gameStatTable = new TextTable();
+
+                    string gameStatTableOut = "Game Stats:" + gameStatTable.FromList(new[]
+                    {
+                        new
+                        {
+                            SessionTime = Program.TheGame.GameStats.SessionTime.Humanize(),
+                            Program.TheGame.GameStats.Money,
+                            Program.TheGame.GameStats.MoneyEarned,
+                            Program.TheGame.GameStats.MoneySpent
+                        }
+                    }, new List<TableCol>
+                    {
+                        new TableCol
+                        {
+                            CenterAlign = true
+                        }
+                    });
+
+                    Program.TheGame.Output(gameStatTableOut, OutputColor.White);
+
                     break;
                 case "inv":
                 case "inventory":
                     var invTable = new TextTable();
 
-                    string table = invTable.FromList(Program.TheGame.Inventory.Select(d => new
+                    string table = "Current Inventory: "+ invTable.FromList(Program.TheGame.Inventory.Select(d => new
                     {
                         d.Name,
                         d.Description,
@@ -75,7 +97,6 @@ namespace ConTrail.Game.CommandParsers
                         }
                     });
 
-                    Program.TheGame.Output("Current Inventory: ", OutputColor.Blue);
                     Program.TheGame.Output(table, OutputColor.White);
                     break;
                 case "quit":

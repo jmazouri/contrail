@@ -1,0 +1,40 @@
+﻿[
+    {
+        "LocationType": "City",
+        "Quality": "10",
+        "PoliceChance": "0.75",
+        "PossibleItemTypes": [
+            "Standard",
+            "Drug",
+            "Food",
+            "FancyFood",
+            "Gas"
+        ]
+    },
+    {
+        "LocationType": "RestArea",
+        "Quality": "3",
+        "PoliceChance": "0.3",
+        "PossibleItemTypes": [ 
+            "Food"
+        ]
+    },
+    {
+        "LocationType": "GasStation",
+        "Quality": "5",
+        "PoliceChance": "0.4",
+        "PossibleItemTypes": [ 
+            "Drug",
+            "Food",
+            "Gas"
+        ]
+    },
+    {
+        "LocationType": "Restaurant",
+        "Quality": "7",
+        "PoliceChance": "0.4",
+        "PossibleItemTypes": [ 
+            "FancyFood"
+        ]
+    }
+]
