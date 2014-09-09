@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Timers;
 using ConTrail.Game;
 using ConTrail.Game.Interfaces;
 using ConTrail.Game.Models;
 using ConTrail.Game.Models.ItemTypes;
 using ConTrail.Importers;
+using ConTrail.Utilities;
 using Humanizer;
 
 namespace ConTrail
@@ -27,7 +29,6 @@ namespace ConTrail
 
         public ConTrailGame()
         {
-            Console.OutputEncoding = System.Text.Encoding.GetEncoding(1252);
             Console.WindowWidth = 80;
 
             InfiniteUseItemImporter.DataPath = "Data/items/infiniteuse.json";
@@ -49,7 +50,8 @@ namespace ConTrail
                 MoneyEarned = 0,
                 MoneySpent = 0,
                 StartTime = DateTime.Now,
-                WantedLevel = 0
+                WantedLevel = 0,
+                Gas = 15.6m
             };
 
             Travelers.Add(new Traveler()

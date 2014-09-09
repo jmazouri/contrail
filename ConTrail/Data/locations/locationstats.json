@@ -14,7 +14,7 @@
     {
         "LocationType": "RestArea",
         "Quality": "3",
-        "PoliceChance": "0.3",
+        "PoliceChance": "0.2",
         "PossibleItemTypes": [ 
             "Food"
         ]
@@ -30,9 +30,9 @@
         ]
     },
     {
-        "LocationType": "Restaurant",
-        "Quality": "7",
-        "PoliceChance": "0.4",
+        "LocationType": "Diner",
+        "Quality": "6",
+        "PoliceChance": "0.3",
         "PossibleItemTypes": [ 
             "FancyFood"
         ]

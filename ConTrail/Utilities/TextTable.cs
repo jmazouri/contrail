@@ -15,8 +15,8 @@ namespace ConTrail.Utilities
         public int TableWidth { get; set; }
         public int AvgColumnWidth { get; set; }
 
-        public string HorizontalLine = ((char)205).ToString();
-        public string VerticalLine = ((char)186).ToString();
+        public string HorizontalLine = "\u2550";
+        public string VerticalLine = "\u2551";
 
         public TextTable(int tableWidth = 79)
         {
