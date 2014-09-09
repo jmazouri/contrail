@@ -6,8 +6,11 @@ namespace ConTrail.Game.Models.ItemTypes
 {
     public abstract class Item : ITarget
     {
+        [Browsable(false)]
         public Item ActiveItem { get; set; }
+        [Browsable(false)]
         public ITarget Owner { get; set; }
+
         public string Name { get; set; }
         public string Description { get; set; }
         public float Value { get; set; }

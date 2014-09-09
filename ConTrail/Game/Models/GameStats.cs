@@ -25,6 +25,8 @@ namespace ConTrail.Game.Models
 
         public string GameName { get; set; }
 
+        public decimal Gas { get; set; }
+
         public void SpendMoney(decimal amount)
         {
             MoneySpent += amount;

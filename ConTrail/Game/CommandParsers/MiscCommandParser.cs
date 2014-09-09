@@ -58,7 +58,8 @@ namespace ConTrail.Game.CommandParsers
                             SessionTime = Program.TheGame.GameStats.SessionTime.Humanize(),
                             Program.TheGame.GameStats.Money,
                             Program.TheGame.GameStats.MoneyEarned,
-                            Program.TheGame.GameStats.MoneySpent
+                            Program.TheGame.GameStats.MoneySpent,
+                            Program.TheGame.GameStats.Gas
                         }
                     }, new List<TableCol>
                     {
