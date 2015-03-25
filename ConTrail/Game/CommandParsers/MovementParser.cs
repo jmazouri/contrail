@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace ConTrail.Game.CommandParsers
 {
@@ -7,7 +6,7 @@ namespace ConTrail.Game.CommandParsers
     {
         public MovementParser()
         {
-            ValidInputs.AddRange(new []
+            ValidInputs = new List<string>
             {
                 "move to",
                 "go to",
@@ -15,7 +14,7 @@ namespace ConTrail.Game.CommandParsers
                 "go",
                 "drive to",
                 "travel to"
-            });
+            };
         }
         protected override void InterperetCommand(string command)
         {

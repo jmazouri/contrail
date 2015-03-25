@@ -3,12 +3,48 @@
         "Name": "Power Inverter",
         "Description": "Lets you charge devices.",
         "Type": "Standard",
-        "Verb": "Charged {0}'s phone using the",
+        "Verb": "Charged {0} up using the {1}",
         "Value": 40.00,
         "Quantity": "-1",
         "MaxCooldown": 4,
         "VitalMod": {
             "Interest": 10
+        }
+    },
+    {
+        "Name": "Smartphone",
+        "Description": "Magical Reddit device.",
+        "Type": "Chargable",
+        "Verb": "{0} is on their phone.",
+        "Value": 100.00,
+        "Quantity": "-1",
+        "MaxCooldown": 10,
+        "VitalMod": {
+            "Interest": 6
+        }
+    },
+    {
+        "Name": "Basic Laptop",
+        "Description": "Can do some stuff.",
+        "Type": "Chargable",
+        "Verb": "{0} is surfing the web.",
+        "Value": 150.00,
+        "Quantity": "-1",
+        "MaxCooldown": 15,
+        "VitalMod": {
+            "Interest": 15
+        }
+    },
+    { 
+        "Name": "Gaming Laptop",
+        "Description": "Master-race level gaming machine.",
+        "Type": "Chargable",
+        "Verb": "{0} is busy fragging.",
+        "Value": 250.00,
+        "Quantity": "-1",
+        "MaxCooldown": 30,
+        "VitalMod": {
+            "Interest": 25
         }
     }
 ]

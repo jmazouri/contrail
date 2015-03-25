@@ -38,5 +38,18 @@
         "VitalMod": {
             "Hunger": -20
         }
+    },
+    { 
+        "Name": "Pocky",
+        "Description": "Delicious wooden candy sticks.",
+        "Type": "Food",
+        "Verb": "{0} ate a",
+        "Value": 3.00,
+        "Quantity": 1,
+        "MaxCooldown": 0,
+        "VitalMod": {
+            "Hunger": -10,
+            "Interest": 5
+        }
     }
 ]

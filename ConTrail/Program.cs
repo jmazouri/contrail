@@ -15,6 +15,7 @@ namespace ConTrail
             while (true)
             {
                 TheGame.Input(Console.ReadLine());
+                
             }
         }
     }

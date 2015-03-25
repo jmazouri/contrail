@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Timers;
+﻿using System;
 using ConTrail.Game.Interfaces;
-using ConTrail.Game.Models.ItemTypes;
 
 namespace ConTrail.Game.Models
 {
@@ -17,12 +15,12 @@ namespace ConTrail.Game.Models
 
         public bool Use(ITarget source)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public ITarget GetCopy()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public override string ToString()

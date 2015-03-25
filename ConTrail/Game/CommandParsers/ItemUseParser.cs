@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
 using ConTrail.Game.Models;
 using ConTrail.Game.Models.ItemTypes;
@@ -11,7 +10,10 @@ namespace ConTrail.Game.CommandParsers
     {
         public ItemUseParser()
         {
-            ValidInputs.Add("use");
+            ValidInputs = new List<string>
+            {
+                "use"
+            };
         }
 
         protected override void InterperetCommand(string command)
@@ -34,8 +36,10 @@ namespace ConTrail.Game.CommandParsers
                     }
                 }
             }
-
-            Program.TheGame.Output(String.Format("What? Use (x) on (y), please!"), OutputColor.White);
+            else
+            {
+                Program.TheGame.Output(String.Format("What? Use (x) on (y), please!"), OutputColor.White);
+            }
         }
     }
 }

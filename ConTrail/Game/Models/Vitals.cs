@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using ConTrail.Utilities;
 using Humanizer;
 
 namespace ConTrail.Game.Models
 {
-    public class Vitals
+    public struct Vitals
     {
         public int Health { get; set; }
         public int Hunger { get; set; }
@@ -23,7 +24,8 @@ namespace ConTrail.Game.Models
 
         public override string ToString()
         {
-            return GetType().GetProperties().Select(d => String.Format("{0}: {1}", d.Name, d.GetValue(this))).Humanize();
+            Vitals thisVitals = this;
+            return GetType().GetProperties().Select(d => String.Format("{0}: {1}", d.Name, d.GetValue(thisVitals))).Humanize();
         }
     }
 }

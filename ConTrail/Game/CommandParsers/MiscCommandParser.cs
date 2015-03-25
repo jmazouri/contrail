@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConTrail.Game.Models;
-using ConTrail.Game.Models.ItemTypes;
 using ConTrail.Utilities;
 using Humanizer;
 

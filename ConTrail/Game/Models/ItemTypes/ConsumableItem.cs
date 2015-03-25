@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ConTrail.Game.Interfaces;
+using ConTrail.Utilities;
 using Humanizer;
 
 namespace ConTrail.Game.Models.ItemTypes
@@ -24,11 +20,12 @@ namespace ConTrail.Game.Models.ItemTypes
 
             var traveler = (Traveler)source;
 
+            Vitals oldVitals = traveler.Vitals;
             traveler.Vitals += VitalMod;
             Quantity -= 1;
 
             Program.TheGame.Output(String.Format("{0} {1}! {2} left.", String.Format(Verb, source.Name), Name, Name.ToQuantity(Quantity)), OutputColor.Green);
-            Program.TheGame.Output(String.Format("New Stats: {0}", traveler.Vitals), OutputColor.Green);
+            Program.TheGame.Output(ReflectionHelper.ComparedTo(oldVitals, traveler.Vitals), OutputColor.Green);
 
             if (Quantity == 0)
             {

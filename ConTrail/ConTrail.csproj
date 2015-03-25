@@ -63,6 +63,9 @@
     <Compile Include="Game\Interfaces\ITarget.cs" />
     <Compile Include="Game\CommandParsers\MovementParser.cs" />
     <Compile Include="Game\Models\Location.cs" />
+    <Compile Include="Utilities\ConsoleHelper.cs" />
+    <Compile Include="Utilities\GameUtil.cs" />
+    <Compile Include="Utilities\ReflectionHelper.cs" />
     <Compile Include="Utilities\TableCol.cs" />
     <Compile Include="Utilities\TextTable.cs" />
     <Compile Include="Importers\Importer.cs" />

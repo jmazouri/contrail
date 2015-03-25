@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Timers;
 using ConTrail.Game;
 using ConTrail.Game.Interfaces;
@@ -152,33 +151,9 @@ namespace ConTrail
 
         public void Output(string data, OutputColor color = OutputColor.Gray)
         {
-            Console.ForegroundColor = OutputToConsoleColor(color);
+            Console.ForegroundColor = ConsoleHelper.OutputToConsoleColor(color);
             Console.WriteLine(data);
-            Console.ForegroundColor = OutputToConsoleColor(InputTextColor);
-        }
-
-        //This whole thing exists so we can do colors in a non-console environment without find/replacing all instances of consolecolor
-        public static ConsoleColor OutputToConsoleColor(OutputColor color)
-        {
-            switch (color)
-            {
-                case OutputColor.Blue:
-                    return ConsoleColor.Cyan;
-                case OutputColor.Gray:
-                    return ConsoleColor.Gray;
-                case OutputColor.Green:
-                    return ConsoleColor.Green;
-                case OutputColor.Red:
-                    return ConsoleColor.Red;
-                case OutputColor.White:
-                    return ConsoleColor.White;
-                case OutputColor.Yellow:
-                    return ConsoleColor.Yellow;
-                case OutputColor.Magenta:
-                    return ConsoleColor.Magenta;
-                default:
-                    return ConsoleColor.Gray;
-            }
+            Console.ForegroundColor = ConsoleHelper.OutputToConsoleColor(InputTextColor);
         }
     }
 

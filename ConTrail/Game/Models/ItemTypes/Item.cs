@@ -17,7 +17,6 @@ namespace ConTrail.Game.Models.ItemTypes
 
         public int Quantity { get; set; }
 
-        [DefaultValue("Used a")]
         public string Verb { get; set; }
 
         public int MaxCooldown { get; set; }
@@ -59,6 +58,7 @@ namespace ConTrail.Game.Models.ItemTypes
         Drug,
         Food,
         Gas,
-        FancyFood
+        FancyFood,
+        Chargable
     }
 }

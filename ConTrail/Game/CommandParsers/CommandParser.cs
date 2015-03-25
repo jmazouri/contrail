@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
 
 namespace ConTrail.Game.CommandParsers
 {
@@ -10,15 +10,11 @@ namespace ConTrail.Game.CommandParsers
 
         public bool Parse(string input)
         {
-            foreach (string testinput in ValidInputs)
-            {
-                if (input.StartsWith(testinput, StringComparison.InvariantCultureIgnoreCase))
-                {
-                    InterperetCommand(input);
-                    return true;
-                }
-            }
-            return false;
+            if (!ValidInputs.Any(testinput => input.StartsWith(testinput, StringComparison.InvariantCultureIgnoreCase)))
+                return false;
+
+            InterperetCommand(input);
+            return true;
         }
 
         protected abstract void InterperetCommand(string command);

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using ConTrail.Game.CommandParsers;
-using ConTrail.Game.Interfaces;
-using ConTrail.Game.Models;
 
 namespace ConTrail.Game
 {

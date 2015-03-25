@@ -1,5 +1,6 @@
 ﻿using System;
 using ConTrail.Game.Interfaces;
+using ConTrail.Utilities;
 
 namespace ConTrail.Game.Models.ItemTypes
 {
@@ -18,10 +19,11 @@ namespace ConTrail.Game.Models.ItemTypes
 
             var traveler = (Traveler)source;
 
+            Vitals oldVitals = traveler.Vitals;
             traveler.Vitals += VitalMod;
 
-            Program.TheGame.Output(String.Format("{0} {1}!", String.Format(Verb, source.Name), Name), OutputColor.Green);
-            Program.TheGame.Output(String.Format("New Stats: {0}", traveler.Vitals), OutputColor.Green);
+            Program.TheGame.Output(String.Format(String.Format(Verb, source.Name), Name), OutputColor.Green);
+            Program.TheGame.Output(ReflectionHelper.ComparedTo(oldVitals, traveler.Vitals), OutputColor.Green);
 
             return true;
         }
